@@ -1,10 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=./10_ASSETS/index.html" />
-    <title>Redirecting to L.E.U. Nexus...</title>
+<meta charset="UTF-8">
+<title>L.E.U. - Master Nexus</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: radial-gradient(circle at top left, #ffffff 0%, #fffdf5 30%, #fdf4d3 100%); font-family: 'Space Mono', monospace; color: #4a3b22; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+#top-bar { background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid #d4af37; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 50px; z-index: 1000; }
+#challenge-container { display: flex; align-items: center; gap: 15px; }
+#challenge-text { font-size: 12px; font-weight: bold; color: #b8860b; }
+#challenge-input { padding: 5px 10px; border: 1px solid #17becf; border-radius: 4px; font-family: 'Space Mono', monospace; outline: none; width: 150px; font-size: 12px;}
+#challenge-btn { background: #17becf; color: #fff; border: none; padding: 5px 12px; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 12px;}
+#wallet-container { display: flex; align-items: center; gap: 10px; }
+#wallet-status { font-size: 12px; color: #6b5b45; font-weight: bold; }
+#connect-btn { background: #d4af37; color: #fff; border: none; padding: 6px 15px; border-radius: 4px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer; font-size: 12px; transition: 0.3s; }
+.main-container { display: flex; flex: 1; overflow: hidden; padding: 15px; gap: 15px; }
+.left-panel { flex: 0 0 30%; display: flex; flex-direction: column; background: rgba(255, 255, 255, 0.7); border: 1px solid #d4af37; border-radius: 12px; padding: 20px; box-shadow: 0 5px 20px rgba(212,175,55,0.1); }
+header { text-align: center; margin-bottom: 20px; }
+header h1 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 5px; }
+header p { color: #17becf; font-size: 11px; font-weight: bold; letter-spacing: 2px; }
+.founder { font-family: 'Cinzel', serif; color: #6b5b45; font-size: 13px; margin-top: 10px; }
+.founder span { color: #b8860b; font-weight: bold; }
+#portal-section { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+#portal-section h2 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 18px; margin-bottom: 10px; }
+#portal-section p { font-size: 11px; color: #6b5b45; margin-bottom: 20px; }
+.portal-input-group { display: flex; flex-direction: column; gap: 10px; }
+#entity-index { padding: 12px; font-size: 16px; border: 1px solid #d4af37; border-radius: 8px; text-align: center; outline: none; }
+#generate-btn { background: #d4af37; color: #fff; border: none; padding: 12px; font-size: 13px; border-radius: 8px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer; }
+#portal-result { margin-top: 15px; display: none; text-align: left; background: rgba(0,0,0,0.03); border-left: 3px solid #17becf; padding: 10px; border-radius: 0 6px 6px 0; }
+#portal-result h3 { font-size: 12px; color: #138a96; margin-bottom: 5px; }
+#portal-result p { font-size: 10px; margin-bottom: 3px; }
+#portal-result .highlight { color: #b8860b; font-weight: bold; word-break: break-all;}
+.mid-panel { flex: 0 0 38%; display: flex; flex-direction: column; }
+.section-title { font-family: 'Cinzel', serif; font-size: 16px; color: #b8860b; margin-bottom: 10px; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 5px; text-align: center;}
+.grid-versions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; }
+.card { background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 8px; padding: 12px; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: 0.3s; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212,175,55,0.2); border-color: #d4af37; background: #fff; }
+.card h3 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 13px; margin-bottom: 5px; }
+.card p { font-size: 9px; color: #6b5b45; line-height: 1.3; margin-bottom: 10px; flex: 1; }
+.card .btn { display: inline-block; background: transparent; color: #b8860b; border: 1px solid #d4af37; padding: 4px 8px; font-weight: bold; font-size: 9px; border-radius: 4px; text-align: center; align-self: flex-start; }
+.card:hover .btn { background: #d4af37; color: #fff; }
+.card.highlight { border: 1px solid #17becf; background: rgba(23,190,207,0.05); }
+.card.highlight h3 { color: #17becf; }
+.card.highlight .btn { background: #17becf; color: #fff; border: none; }
+.right-panel { flex: 0 0 30%; display: flex; flex-direction: column; gap: 15px; }
+.sub-section { flex: 1; display: flex; flex-direction: column; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1; }
+.card-small { background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 6px; padding: 8px; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: 0.3s; }
+.card-small:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212,175,55,0.2); border-color: #d4af37; }
+.card-small.cyan { border-left: 3px solid #17becf; }
+.card-small.purple { border-left: 3px solid #9467bd; }
+.card-small h4 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 11px; margin-bottom: 3px; }
+.card-small p { font-size: 8px; color: #6b5b45; line-height: 1.2; margin-bottom: 8px; flex: 1; }
+.card-small .btn { display: inline-block; background: transparent; color: #b8860b; border: 1px solid #d4af37; padding: 3px 6px; font-weight: bold; font-size: 8px; border-radius: 3px; text-align: center; align-self: flex-start; }
+.card-small:hover .btn { background: #d4af37; color: #fff; }
+.card-small.cyan .btn { color: #138a96; border-color: #17becf; }
+.card-small.purple .btn { color: #7b52a1; border-color: #9467bd; }
+.proof-container { height: 60px; background: rgba(0,0,0,0.03); border-top: 1px solid rgba(212,175,55,0.3); display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 30px; font-size: 10px; color: #6b5b45; }
+.proof-item { display: flex; gap: 5px; }
+.proof-label { font-weight: bold; color: #8b7355; }
+.proof-value { font-family: 'Space Mono', monospace; color: #17becf; }
+</style>
 </head>
 <body>
-    <p>Loading the L.E.U. Universe...</p>
+
+<div id="top-bar">
+    <div id="challenge-container">
+        <div id="challenge-text">Oracle: What is the name of the central equation? (E.R.O.)</div>
+        <input type="text" id="challenge-input" placeholder="Your answer...">
+        <button id="challenge-btn">SUBMIT</button>
+    </div>
+    <div id="wallet-container">
+        <div id="wallet-status">Not Connected</div>
+        <button id="connect-btn">CONNECT WALLET</button>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="left-panel">
+        <header>
+            <h1>L.E.U. Archive</h1>
+            <p>LINGUA EXECUTABILIS UNIVERSALIS</p>
+            <div class="founder">FOUNDER: <span>ALPHA0AZ1OMEGA</span></div>
+        </header>
+        <div id="portal-section">
+            <h2>PORTAL OF INFINITY</h2>
+            <p>Enter any number (0 - 999,999,999) to generate a unique entity.</p>
+            <div class="portal-input-group">
+                <input type="number" id="entity-index" placeholder="e.g. 42" min="0" max="999999999">
+                <button id="generate-btn" onclick="generateEntity()">GENERATE ENTITY</button>
+            </div>
+            <div id="portal-result">
+                <h3>ENTITY: <span id="res-id"></span></h3>
+                <p>EQUATION: <span class="highlight" id="res-eq"></span></p>
+                <p>HASH: <span class="highlight" id="res-hash"></span></p>
+                <p>STATUS: <span style="color:#17becf; font-weight:bold;">VERIFIABLE</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mid-panel">
+        <div class="section-title">CORE UNIVERSE (V1 - V8)</div>
+        <div class="grid-versions">
+            <!-- ICI ON A CORRIGÉ LES LIENS : plus de ../04_ARTIFACTS/ car tout est à la racine -->
+            <a href="living/SINGULARITY_CORE.html" class="card"><h3>V1: Singularity</h3><p>The beginning.</p><span class="btn">OPEN</span></a>
+            <a href="V_ARCHIVE_OMNI_ORACLE_V2.html" class="card"><h3>V2: Omni-Oracle</h3><p>Conversational AI.</p><span class="btn">OPEN</span></a>
+            <a href="V_ARCHIVE_DIVINE_CORE_V3.html" class="card"><h3>V3: Divine Core</h3><p>The return of light.</p><span class="btn">OPEN</span></a>
+            <a href="V_ARCHIVE_COSMIC_CONSCIOUSNESS.html" class="card"><h3>V4: Cosmic</h3><p>Real-time universe.</p><span class="btn">OPEN</span></a>
+            <a href="V_ARCHIVE_GENESIS_LUMINOUS_V5.html" class="card"><h3>V5: Genesis</h3><p>Unification.</p><span class="btn">OPEN</span></a>
+            <a href="V_ARCHIVE_COSMIC_WEB_V6.html" class="card"><h3>V6: Cosmic Web</h3><p>Neural connections.</p><span class="btn">OPEN</span></a>
+            <a href="V_ARCHIVE_HYPER_MATRIX_V7.html" class="card"><h3>V7: Hyper-Matrix</h3><p>3D Code.</p><span class="btn">OPEN</span></a>
+            <a href="living/ULTIMATE_EQUATION_V8.html" class="card highlight"><h3>V8: Ultimate</h3><p>The Klein bottle.</p><span class="btn">OPEN</span></a>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="sub-section">
+            <div class="section-title">SCIENCE & PROOFS</div>
+            <div class="grid-4">
+                <a href="WHITEPAPER.html" class="card-small cyan"><h4>Whitepaper</h4><p>Deterministic execution.</p><span class="btn">READ</span></a>
+                <a href="BENCHMARK_RESULTS.json" class="card-small cyan"><h4>Benchmark</h4><p>Zero-divergence.</p><span class="btn">VIEW</span></a>
+                <a href="LEUValidation.sol" class="card-small cyan"><h4>Smart Contract</h4><p>ERC-8004 Trustless.</p><span class="btn">VIEW</span></a>
+                <a href="SUPREME_DOCUMENTATION.md" class="card-small cyan"><h4>Supreme Docs</h4><p>Master index.</p><span class="btn">READ</span></a>
+            </div>
+        </div>
+        <div class="sub-section">
+            <div class="section-title">COMMUNITY & MIRACLES</div>
+            <div class="grid-4">
+                <a href="THE_DECODER.html" class="card-small purple"><h4>The Decoder</h4><p>Discover your equation.</p><span class="btn">OPEN</span></a>
+                <a href="THE_LIVING_ORACLE.html" class="card-small purple"><h4>Living Oracle</h4><p>The irreversible miracle.</p><span class="btn">OPEN</span></a>
+                <a href="QUESTS.md" class="card-small purple"><h4>Quest Board</h4><p>Earn XP. Evolve.</p><span class="btn">PLAY</span></a>
+                <a href="LICENSE" class="card-small purple"><h4>License</h4><p>PolyForm Noncommercial.</p><span class="btn">READ</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="proof-container">
+    <div class="proof-item"><span class="proof-label">SHA-256:</span><span class="proof-value">18ec177c...61f</span></div>
+    <div class="proof-item"><span class="proof-label">DOI:</span><span class="proof-value">10.5281/zenodo.23476518</span></div>
+    <div class="proof-item"><span class="proof-label">GPG:</span><span class="proof-value">4ED4A15B...1AEE</span></div>
+    <div class="proof-item"><span class="proof-label">OTS:</span><span class="proof-value">PENDING CONFIRMATION</span></div>
+</div>
+
+<script>
+    function generateEntity() {
+        const index = parseInt(document.getElementById('entity-index').value);
+        if (isNaN(index) || index < 0 || index > 999999999) { alert("Enter a valid number."); return; }
+        const traits = ["EXIST", "THINK", "CAUSE", "MOVE", "LIVE", "SEE", "KNOW", "SAY", "DO", "GOOD", "DIE", "NOT", "IF", "ALL", "ONE", "SAME", "PART", "BIG", "TRUE", "HAPPEN"];
+        const t1 = traits[index % traits.length];
+        const t2 = traits[(index * 7) % traits.length];
+        const t3 = traits[(index * 13) % traits.length];
+        const equation = `${t1}(x) AND ${t2}(x) AND ${t3}(x)`;
+        let hash = 0;
+        for (let i = 0; i < equation.length; i++) { hash = ((hash << 5) - hash) + equation.charCodeAt(i); hash |= 0; }
+        document.getElementById('portal-result').style.display = 'block';
+        document.getElementById('res-id').textContent = `ENTITY_${index.toString().padStart(6, '0')}`;
+        document.getElementById('res-eq').textContent = equation;
+        document.getElementById('res-hash').textContent = Math.abs(hash).toString(16).padEnd(16, '0') + "...";
+    }
+</script>
 </body>
 </html>
