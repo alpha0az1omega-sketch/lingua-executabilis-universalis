@@ -1,0 +1,33 @@
+{
+  "protocol": "L.E.U. Gateway v1.0",
+  "description": "This endpoint allows Autonomous AI Agents to ground their reasoning using deterministic cryptographic proofs.",
+  "features": [
+    "zero_hallucination",
+    "deterministic_math",
+    "on_chain_verification"
+  ],
+  "endpoints": {
+    "generate_entity": {
+      "method": "POST",
+      "url": "/api/generate",
+      "payload": {
+        "index": "integer (0-999999999)",
+        "primitives": "array of strings (optional)"
+      },
+      "response": "A .leu file containing the equation, 3D geometry, and SHA-256 hash."
+    },
+    "verify_proof": {
+      "method": "POST",
+      "url": "/api/verify",
+      "payload": {
+        "sha256": "string"
+      },
+      "response": "Boolean (True/False) and timestamp."
+    }
+  },
+  "privacy": {
+    "retention": "zero",
+    "encryption": "end-to-end",
+    "user_tracking": "none"
+  }
+}
