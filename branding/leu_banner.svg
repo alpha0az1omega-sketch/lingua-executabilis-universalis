@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FDF4D3" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <text x="600" y="140" font-family="serif" font-size="64" fill="#B8860B" text-anchor="middle" font-weight="bold">L.E.U. ARCHIVE 000</text>
+  <text x="600" y="190" font-family="monospace" font-size="20" fill="#17BECF" text-anchor="middle">LINGUA EXECUTABILIS UNIVERSALIS</text>
+  <text x="600" y="240" font-family="monospace" font-size="14" fill="#6B5B45" text-anchor="middle">FOUNDER: ALPHA0AZ1OMEGA | VERIFIABLE AI OUTPUTS</text>
+</svg>

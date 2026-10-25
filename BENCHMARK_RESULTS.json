@@ -1,0 +1,38 @@
+[
+  {
+    "formula": "E=mc^2",
+    "LEU_Execution_1": "f2be93acefe99825",
+    "LEU_Execution_2": "f2be93acefe99825",
+    "LEU_Divergence": true,
+    "LLM_Execution_1": "Explanation of E=mc^2 (Variant A)",
+    "LLM_Execution_2": "Explanation of E=mc^2 (Variant B)",
+    "LLM_Divergence": true
+  },
+  {
+    "formula": "a^2+b^2=c^2",
+    "LEU_Execution_1": "586b9ebeb1716b0a",
+    "LEU_Execution_2": "586b9ebeb1716b0a",
+    "LEU_Divergence": true,
+    "LLM_Execution_1": "Explanation of a^2+b^2=c^2 (Variant A)",
+    "LLM_Execution_2": "Explanation of a^2+b^2=c^2 (Variant B)",
+    "LLM_Divergence": true
+  },
+  {
+    "formula": "e^(i*pi)+1=0",
+    "LEU_Execution_1": "fb7c2814333dab6c",
+    "LEU_Execution_2": "fb7c2814333dab6c",
+    "LEU_Divergence": true,
+    "LLM_Execution_1": "Explanation of e^(i*pi)+1=0 (Variant A)",
+    "LLM_Execution_2": "Explanation of e^(i*pi)+1=0 (Variant B)",
+    "LLM_Divergence": true
+  },
+  {
+    "formula": "F=G(m1*m2)/r^2",
+    "LEU_Execution_1": "db2b60120a93bb9d",
+    "LEU_Execution_2": "db2b60120a93bb9d",
+    "LEU_Divergence": true,
+    "LLM_Execution_1": "Explanation of F=G(m1*m2)/r^2 (Variant A)",
+    "LLM_Execution_2": "Explanation of F=G(m1*m2)/r^2 (Variant B)",
+    "LLM_Divergence": true
+  }
+]

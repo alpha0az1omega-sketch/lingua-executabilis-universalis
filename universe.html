@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>L.E.U. - Universe</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: radial-gradient(circle at top left, #ffffff 0%, #fffdf5 40%, #fdf4d3 100%); font-family: 'Space Mono', monospace; color: #4a3b22; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,175,55,0.3); height: 50px; z-index: 100; }
+.nav-logo { font-family: 'Cinzel', serif; color: #b8860b; font-size: 18px; font-weight: bold; letter-spacing: 2px; }
+.nav-links a { text-decoration: none; color: #8b7355; font-family: 'Cinzel', serif; font-weight: bold; letter-spacing: 1px; font-size: 12px; margin-left: 20px; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: #17becf; }
+.main-content { flex: 1; display: flex; padding: 20px; gap: 20px; height: calc(100vh - 50px); }
+.panel { background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+.panel-title { font-family: 'Cinzel', serif; color: #b8860b; font-size: 16px; margin-bottom: 15px; letter-spacing: 1px; border-bottom: 1px solid rgba(212,175,55,0.2); padding-bottom: 5px; }
+.grid-8 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; overflow: hidden; }
+.item-card { background: #fff; border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; transition: 0.2s; }
+.item-card:hover { border-color: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.15); transform: translateY(-2px); }
+.item-card h4 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 12px; margin-bottom: 5px; }
+.item-card p { font-size: 9px; color: #6b5b45; line-height: 1.2; flex: 1; }
+.item-card .btn-sm { font-size: 9px; font-weight: bold; color: #17becf; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">L.E.U. ARCHIVE 000</div>
+    <div class="nav-links">
+        <a href="index.html" class="">HOME</a>
+        <a href="universe.html" class="active">UNIVERSE</a>
+        <a href="science.html" class="">SCIENCE</a>
+        <a href="community.html" class="">COMMUNITY</a>
+    </div>
+</nav>
+
+<div class="main-content">
+    <div class="panel" style="flex: 1;">
+        <div class="panel-title" style="text-align: center;">THE 8 VERSIONS OF L.E.U.</div>
+        <div class="grid-8">
+            <a href="../04_ARTIFACTS/living/SINGULARITY_CORE.html" class="item-card"><h4>V1: Singularity</h4><p>The genesis visual engine.</p><span class="btn-sm">OPEN →</span></a>
+            <a href="../09_VERSIONS/V_ARCHIVE_OMNI_ORACLE_V2.html" class="item-card"><h4>V2: Omni-Oracle</h4><p>Interactive Platonic solids.</p><span class="btn-sm">OPEN →</span></a>
+            <a href="../09_VERSIONS/V_ARCHIVE_DIVINE_CORE_V3.html" class="item-card"><h4>V3: Divine Core</h4><p>Ivory and Gold aesthetic.</p><span class="btn-sm">OPEN →</span></a>
+            <a href="../09_VERSIONS/V_ARCHIVE_COSMIC_CONSCIOUSNESS.html" class="item-card"><h4>V4: Cosmic</h4><p>Real-time consciousness.</p><span class="btn-sm">OPEN →</span></a>
+            <a href="../09_VERSIONS/V_ARCHIVE_GENESIS_LUMINOUS_V5.html" class="item-card"><h4>V5: Genesis</h4><p>Unification of the archive.</p><span class="btn-sm">OPEN →</span></a>
+            <a href="../09_VERSIONS/V_ARCHIVE_COSMIC_WEB_V6.html" class="item-card"><h4>V6: Cosmic Web</h4><p>Neural network of entities.</p><span class="btn-sm">OPEN →</span></a>
+            <a href="../09_VERSIONS/V_ARCHIVE_HYPER_MATRIX_V7.html" class="item-card"><h4>V7: Hyper-Matrix</h4><p>3D data nebula.</p><span class="btn-sm">OPEN →</span></a>
+            <a href="../04_ARTIFACTS/living/ULTIMATE_EQUATION_V8.html" class="item-card" style="border-color: #17becf;"><h4 style="color: #17becf;">V8: Ultimate</h4><p>The Klein bottle E.R.O.</p><span class="btn-sm">OPEN →</span></a>
+        </div>
+    </div>
+</div>
+</body></html>

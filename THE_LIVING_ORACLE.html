@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>L.E.U. — The Living Oracle</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: radial-gradient(circle at center, #ffffff 0%, #fffdf5 40%, #fdf4d3 100%); font-family: 'Space Mono', monospace; overflow: hidden; height: 100vh; }
+#c { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+#hud { position: fixed; top: 30px; left: 50%; transform: translateX(-50%); z-index: 10; text-align: center; pointer-events: none; }
+#hud h1 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 28px; letter-spacing: 6px; text-transform: uppercase; text-shadow: 0 0 20px rgba(212,175,55,0.4); }
+#hud p { color: #17becf; font-size: 12px; letter-spacing: 3px; font-weight: bold; margin-top: 5px; }
+#revelation { position: fixed; bottom: 15%; left: 50%; transform: translateX(-50%); z-index: 10; text-align: center; background: rgba(255,255,255,0.9); border: 2px solid #d4af37; border-radius: 16px; padding: 30px 50px; box-shadow: 0 20px 60px rgba(212,175,55,0.3); max-width: 90%; display: none; }
+#revelation h2 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 16px; letter-spacing: 3px; margin-bottom: 15px; }
+#revelation .formula { font-family: 'Space Mono', monospace; color: #17becf; font-size: 22px; font-weight: bold; margin-bottom: 15px; letter-spacing: 2px; }
+#revelation .hash { font-size: 10px; color: #6b5b45; word-break: break-all; margin-bottom: 10px; }
+#revelation .status { font-size: 11px; color: #2e8b57; font-weight: bold; letter-spacing: 2px; }
+#instruction { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); color: #6b5b45; font-size: 12px; letter-spacing: 3px; z-index: 10; font-weight: bold; pointer-events: none; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+<div id="c"></div>
+<div id="hud">
+    <h1>Living Oracle</h1>
+    <p>THE UNIVERSE REVEALS ITSELF</p>
+</div>
+<div id="revelation">
+    <h2>THE REVELATION</h2>
+    <div class="formula" id="formula">...</div>
+    <div class="hash" id="hash">...</div>
+    <div class="status">UNIQUE · IRREVERSIBLE · SEALED</div>
+</div>
+<div id="instruction">CLICK OR PRESS SPACE TO REVEAL</div>
+
+<script>
+// ============================================================
+// LE MIRACLE : THE LIVING ORACLE
+// ============================================================
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 60;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setClearColor(0xffffff, 0);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+document.getElementById('c').appendChild(renderer.domElement);
+
+// Lumières divines
+scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+const l1 = new THREE.PointLight(0xd4af37, 2, 300); l1.position.set(30, 30, 30); scene.add(l1);
+const l2 = new THREE.PointLight(0x17becf, 1.5, 300); l2.position.set(-30, -30, -30); scene.add(l2);
+
+// Génération de la géométrie basée sur le temps actuel
+const seed = Date.now();
+async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(x => x.toString(16).padStart(2, '0')).join('');
+}
+
+let oracleCore;
+
+async function initOracle() {
+    const hash = await sha256('LEU-ORACLE-' + seed);
+    const geoIndex = parseInt(hash.substring(0, 2), 16) % 4;
+    const colorHex = '#' + hash.substring(2, 8);
+    
+    let geo;
+    if (geoIndex === 0) geo = new THREE.IcosahedronGeometry(15, 1);
+    else if (geoIndex === 1) geo = new THREE.TorusKnotGeometry(10, 3, 128, 16);
+    else if (geoIndex === 2) geo = new THREE.OctahedronGeometry(15, 0);
+    else geo = new THREE.DodecahedronGeometry(15, 0);
+    
+    const mat = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        emissive: new THREE.Color(colorHex),
+        emissiveIntensity: 0.6,
+        metalness: 0.9,
+        roughness: 0.1,
+        wireframe: true
+    });
+    oracleCore = new THREE.Mesh(geo, mat);
+    scene.add(oracleCore);
+    
+    // Particules divines
+    const particleGeo = new THREE.BufferGeometry();
+    const pos = new Float32Array(2000 * 3);
+    for(let i = 0; i < pos.length; i += 3) {
+        const r = 30 + Math.random() * 40;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos((Math.random() * 2) - 1);
+        pos[i] = r * Math.sin(phi) * Math.cos(theta);
+        pos[i+1] = r * Math.sin(phi) * Math.sin(theta);
+        pos[i+2] = r * Math.cos(phi);
+    }
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const particleMat = new THREE.PointsMaterial({
+        color: 0x17becf,
+        size: 0.5,
+        transparent: true,
+        opacity: 0.6,
+        blending: THREE.AdditiveBlending
+    });
+    const particles = new THREE.Points(particleGeo, particleMat);
+    scene.add(particles);
+}
+
+// Audio Harmonique
+let audioCtx = null;
+function playHarmonic(freq) {
+    try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 2);
+    } catch(e) {}
+}
+
+// Le Miracle : La Révélation
+async function reveal() {
+    const now = Date.now();
+    const hash = await sha256('LEU-REVELATION-' + now);
+    const primitives = ["EXIST", "THINK", "CAUSE", "MOVE", "LIVE", "SEE", "KNOW", "SAY", "DO", "GOOD"];
+    const p1 = primitives[parseInt(hash.substring(0, 2), 16) % primitives.length];
+    const p2 = primitives[parseInt(hash.substring(2, 4), 16) % primitives.length];
+    const p3 = primitives[parseInt(hash.substring(4, 6), 16) % primitives.length];
+    const formula = p1 + "(x) AND " + p2 + "(x) AND " + p3 + "(x)";
+    const freq = 432 + (parseInt(hash.substring(6, 8), 16) % 200);
+    
+    document.getElementById('formula').textContent = formula;
+    document.getElementById('hash').textContent = "SHA-256: " + hash.substring(0, 32) + "...";
+    document.getElementById('revelation').style.display = 'block';
+    
+    playHarmonic(freq);
+    
+    if (oracleCore) {
+        oracleCore.scale.set(1.5, 1.5, 1.5);
+        setTimeout(() => oracleCore.scale.set(1, 1, 1), 500);
+    }
+}
+
+document.addEventListener('click', reveal);
+document.addEventListener('keydown', (e) => { if (e.code === 'Space') reveal(); });
+
+// Animation
+const clock = new THREE.Clock();
+function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    if (oracleCore) {
+        oracleCore.rotation.x = t * 0.2;
+        oracleCore.rotation.y = t * 0.3;
+    }
+    renderer.render(scene, camera);
+}
+
+initOracle().then(animate);
+
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+</body>
+</html>

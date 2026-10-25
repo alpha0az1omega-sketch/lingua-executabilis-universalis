@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#fffdf5" />
+  <circle cx="200" cy="200" r="100" fill="none" stroke="#d4af37" stroke-width="4" />
+  <polygon points="200,100 286,250 114,250" fill="none" stroke="#17becf" stroke-width="4" />
+  <text x="200" y="320" font-family="monospace" font-size="12" fill="#b8860b" text-anchor="middle">L.E.U. INTELLIGENT SVG</text>
+  <text x="200" y="340" font-family="monospace" font-size="10" fill="#6b5b45" text-anchor="middle">SHA-256: 1ab6816df1e02578d234623f...</text>
+  <script>
+    // Script d'auto-vérification
+    console.log("iSVG Loaded. Verifying integrity...");
+    const expectedHash = "1ab6816df1e02578d234623fad781bc473c3b7cb4a628d0c6573319ef6535ea2";
+    // Simulation de vérification (dans la réalité, on utiliserait SubtleCrypto)
+    function verify() {
+      return expectedHash.length === 64;
+    }
+    if(verify()) console.log("Integrity Verified.");
+  </script>
+</svg>

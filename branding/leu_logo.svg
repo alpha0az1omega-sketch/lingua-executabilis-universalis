@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#FFFFFF" rx="20"/>
+  <polygon points="100,20 160,60 160,140 100,180 40,140 40,60" fill="none" stroke="#D4AF37" stroke-width="4"/>
+  <circle cx="100" cy="100" r="25" fill="none" stroke="#17BECF" stroke-width="6"/>
+  <text x="100" y="108" font-family="monospace" font-size="20" fill="#000" text-anchor="middle" font-weight="bold">L</text>
+</svg>

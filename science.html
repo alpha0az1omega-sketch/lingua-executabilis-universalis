@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>L.E.U. - Science</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: radial-gradient(circle at top left, #ffffff 0%, #fffdf5 40%, #fdf4d3 100%); font-family: 'Space Mono', monospace; color: #4a3b22; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,175,55,0.3); height: 50px; z-index: 100; }
+.nav-logo { font-family: 'Cinzel', serif; color: #b8860b; font-size: 18px; font-weight: bold; letter-spacing: 2px; }
+.nav-links a { text-decoration: none; color: #8b7355; font-family: 'Cinzel', serif; font-weight: bold; letter-spacing: 1px; font-size: 12px; margin-left: 20px; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: #17becf; }
+.main-content { flex: 1; display: flex; padding: 20px; gap: 20px; height: calc(100vh - 50px); }
+.panel { background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+.panel-title { font-family: 'Cinzel', serif; color: #b8860b; font-size: 16px; margin-bottom: 15px; letter-spacing: 1px; border-bottom: 1px solid rgba(212,175,55,0.2); padding-bottom: 5px; }
+.grid-8 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; overflow: hidden; }
+.item-card { background: #fff; border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; transition: 0.2s; }
+.item-card:hover { border-color: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.15); transform: translateY(-2px); }
+.item-card h4 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 12px; margin-bottom: 5px; }
+.item-card p { font-size: 9px; color: #6b5b45; line-height: 1.2; flex: 1; }
+.item-card .btn-sm { font-size: 9px; font-weight: bold; color: #17becf; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">L.E.U. ARCHIVE 000</div>
+    <div class="nav-links">
+        <a href="index.html" class="">HOME</a>
+        <a href="universe.html" class="">UNIVERSE</a>
+        <a href="science.html" class="active">SCIENCE</a>
+        <a href="community.html" class="">COMMUNITY</a>
+    </div>
+</nav>
+
+<div class="main-content">
+    <div class="panel" style="flex: 1;">
+        <div class="panel-title" style="text-align: center;">SCIENTIFIC PROOFS & SCIENCE</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; flex: 1;">
+            <a href="WHITEPAPER.html" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">Whitepaper</h4><p>The theory of deterministic execution and zero divergence. Why L.E.U. cannot hallucinate.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">READ PAPER →</span></a>
+            <a href="BENCHMARK_RESULTS.json" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">Benchmark</h4><p>The mathematical proof: L.E.U. Divergence = 0% vs LLM = 100%. The ultimate verification.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">VIEW DATA →</span></a>
+            <a href="LEUValidation.sol" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">Smart Contract</h4><p>ERC-8004 Trustless Verification. The on-chain notary of the L.E.U. universe.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">VIEW CODE →</span></a>
+            <a href="SUPREME_DOCUMENTATION.md" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">Supreme Docs</h4><p>The master index of all L.E.U. knowledge, architecture, and APIs.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">READ DOCS →</span></a>
+        </div>
+    </div>
+</div>
+</body></html>

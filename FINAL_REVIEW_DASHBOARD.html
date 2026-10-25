@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>L.E.U. - Tetrix Professional Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: radial-gradient(circle at top left, #ffffff 0%, #fffdf5 40%, #fdf4d3 100%); font-family: 'Space Mono', monospace; color: #4a3b22; min-height: 100vh; padding: 40px; }
+
+/* HEADER */
+.header { max-width: 1400px; margin: 0 auto 40px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid rgba(212,175,55,0.3); padding-bottom: 20px; }
+.title-box h1 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 32px; letter-spacing: 4px; text-transform: uppercase; }
+.title-box p { color: #17becf; font-size: 12px; font-weight: bold; letter-spacing: 2px; margin-top: 5px; }
+.status-box { text-align: right; font-size: 12px; color: #6b5b45; }
+.status-box span { color: #17becf; font-weight: bold; }
+
+/* TETRIX GRID */
+.container { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+.section-title { font-family: 'Cinzel', serif; font-size: 20px; color: #b8860b; letter-spacing: 2px; display: flex; align-items: center; gap: 15px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: rgba(212,175,55,0.3); }
+
+.grid { display: grid; gap: 20px; }
+.grid-versions { grid-template-columns: repeat(4, 1fr); }
+.grid-science { grid-template-columns: repeat(4, 1fr); }
+.grid-community { grid-template-columns: repeat(4, 1fr); }
+
+/* CARDS */
+.card { background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 12px; padding: 25px; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.08); transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2); border-color: #d4af37; background: rgba(255, 255, 255, 0.95); }
+.card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #d4af37; opacity: 0.5; transition: opacity 0.3s; }
+.card:hover::before { opacity: 1; }
+
+.card.cyan::before { background: #17becf; }
+.card.cyan:hover { border-color: #17becf; box-shadow: 0 20px 40px rgba(23, 190, 207, 0.2); }
+
+.card.purple::before { background: #9467bd; }
+.card.purple:hover { border-color: #9467bd; box-shadow: 0 20px 40px rgba(148, 103, 189, 0.2); }
+
+.card h3 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; }
+.card.cyan h3 { color: #138a96; }
+.card.purple h3 { color: #7b52a1; }
+.card p { font-size: 12px; color: #6b5b45; line-height: 1.5; margin-bottom: 20px; flex: 1; }
+.card a { display: inline-block; background: transparent; color: #b8860b; border: 1px solid #d4af37; padding: 10px 15px; text-decoration: none; font-weight: bold; font-size: 11px; border-radius: 6px; text-align: center; transition: all 0.3s; letter-spacing: 1px; }
+.card a:hover { background: #d4af37; color: #fff; }
+.card.cyan a { color: #138a96; border-color: #17becf; }
+.card.cyan a:hover { background: #17becf; color: #fff; }
+.card.purple a { color: #7b52a1; border-color: #9467bd; }
+.card.purple a:hover { background: #9467bd; color: #fff; }
+
+/* HIGHLIGHT */
+.card.highlight { border: 2px solid #17becf; box-shadow: 0 0 30px rgba(23,190,207,0.15); }
+.card.highlight h3 { color: #17becf; }
+.card.highlight a { background: #17becf; color: #fff; }
+.card.highlight a:hover { background: #138a96; }
+
+/* AI CHALLENGE BANNER */
+#challenge-banner { background: linear-gradient(90deg, rgba(23,190,207,0.1), rgba(212,175,55,0.1)); border: 1px solid #17becf; border-radius: 12px; padding: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin-left: auto; margin-right: auto; }
+#challenge-text { font-weight: bold; color: #138a96; }
+#challenge-input { padding: 10px; border: 1px solid #17becf; border-radius: 6px; font-family: 'Space Mono', monospace; outline: none; width: 200px; }
+#challenge-btn { background: #17becf; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-left: 10px; transition: background 0.3s; }
+#challenge-btn:hover { background: #138a96; }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="title-box">
+        <h1>L.E.U. Archive 000</h1>
+        <p>META-ZETA PROFESSIONAL DASHBOARD // V12 TETRIX</p>
+    </div>
+    <div class="status-box">
+        <div>HASH: <span>2950e650...</span></div>
+        <div>STATUS: <span>SEALED & VERIFIED</span></div>
+        <div>DATE: <span>2026-10-25</span></div>
+    </div>
+</div>
+
+<div id="challenge-banner">
+    <div id="challenge-text">Loading AI Challenge...</div>
+    <div>
+        <input type="text" id="challenge-input" placeholder="Your answer..." autocomplete="off">
+        <button id="challenge-btn">SUBMIT</button>
+    </div>
+</div>
+
+<div class="container">
+    
+    <!-- SECTION 1: VERSIONS -->
+    <div>
+        <div class="section-title">Core Universe (V1 - V8)</div>
+        <div class="grid grid-versions">
+            <div class="card"><h3>V1: Singularity</h3><p>The beginning. Torus knot and Matrix particles.</p><a href="../04_ARTIFACTS/living/SINGULARITY_CORE.html" target="_blank">OPEN V1</a></div>
+            <div class="card"><h3>V2: Omni-Oracle</h3><p>Conversational AI and Platonic solids.</p><a href="../09_VERSIONS/V_ARCHIVE_OMNI_ORACLE_V2.html" target="_blank">OPEN V2</a></div>
+            <div class="card"><h3>V3: Divine Core</h3><p>The return of light. Math holograms.</p><a href="../09_VERSIONS/V_ARCHIVE_DIVINE_CORE_V3.html" target="_blank">OPEN V3</a></div>
+            <div class="card"><h3>V4: Cosmic</h3><p>Real-time. The universe awakens with time.</p><a href="../09_VERSIONS/V_ARCHIVE_COSMIC_CONSCIOUSNESS.html" target="_blank">OPEN V4</a></div>
+            <div class="card"><h3>V5: Genesis</h3><p>Unification. Archive 000 in a field of light.</p><a href="../09_VERSIONS/V_ARCHIVE_GENESIS_LUMINOUS_V5.html" target="_blank">OPEN V5</a></div>
+            <div class="card"><h3>V6: Cosmic Web</h3><p>The neural connections between entities.</p><a href="../09_VERSIONS/V_ARCHIVE_COSMIC_WEB_V6.html" target="_blank">OPEN V6</a></div>
+            <div class="card"><h3>V7: Hyper-Matrix</h3><p>3D Code. Symbols swirling in space-time.</p><a href="../09_VERSIONS/V_ARCHIVE_HYPER_MATRIX_V7.html" target="_blank">OPEN V7</a></div>
+            <div class="card highlight"><h3>V8: Ultimate</h3><p>The Klein bottle and E.R.O. unification.</p><a href="../04_ARTIFACTS/living/ULTIMATE_EQUATION_V8.html" target="_blank">OPEN V8</a></div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: SCIENCE -->
+    <div>
+        <div class="section-title">Science & Proofs</div>
+        <div class="grid grid-science">
+            <div class="card cyan"><h3>Whitepaper</h3><p>The theory of deterministic execution.</p><a href="WHITEPAPER.html" target="_blank">READ</a></div>
+            <div class="card cyan"><h3>Benchmark</h3><p>Zero-divergence proof (0% vs 100%).</p><a href="BENCHMARK_RESULTS.json" target="_blank">VIEW</a></div>
+            <div class="card cyan"><h3>Smart Contract</h3><p>ERC-8004 Trustless Verification.</p><a href="LEUValidation.sol" target="_blank">VIEW</a></div>
+            <div class="card cyan"><h3>Supreme Docs</h3><p>The master index of all L.E.U. knowledge.</p><a href="SUPREME_DOCUMENTATION.md" target="_blank">READ</a></div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: COMMUNITY -->
+    <div>
+        <div class="section-title">Community & Origins</div>
+        <div class="grid grid-community">
+            <div class="card purple"><h3>License</h3><p>PolyForm Noncommercial 1.0.0.</p><a href="LICENSE" target="_blank">READ</a></div>
+            <div class="card purple"><h3>Contributors</h3><p>The architects of the universe.</p><a href="CONTRIBUTORS.md" target="_blank">VIEW</a></div>
+            <div class="card purple"><h3>Quest Board</h3><p>Accept the challenges of the Genesis.</p><a href="../QUESTS.md" target="_blank">PLAY</a></div>
+            <div class="card purple"><h3>Mathesis Nova</h3><p>The original masterpiece.</p><a href="../04_ARTIFACTS/mathesis_nova.html" target="_blank">OPEN</a></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const challenges = [
+        { q: "Which primitive implies existence? (EXIST, CAUSE, THINK)", a: "exist" },
+        { q: "What is the cryptographic color of L.E.U.? (Gold/Cyan)", a: "gold" },
+        { q: "Solve: 20 primitives + infinite universe = ?", a: "leu" },
+        { q: "What is the name of the central equation? (E.R.O.)", a: "ero" }
+    ];
+    const randomChallenge = challenges[Math.floor(Math.random() * challenges.length)];
+    document.getElementById('challenge-text').textContent = "AI Challenge: " + randomChallenge.q;
+    
+    document.getElementById('challenge-btn').addEventListener('click', () => {
+        const answer = document.getElementById('challenge-input').value.toLowerCase().trim();
+        if (answer.includes(randomChallenge.a)) {
+            document.getElementById('challenge-banner').style.background = "linear-gradient(90deg, rgba(152,251,152,0.2), rgba(212,175,55,0.2))";
+            document.getElementById('challenge-banner').style.borderColor = "#98fb98";
+            document.getElementById('challenge-text').innerHTML = "<strong>ACCESS GRANTED.</strong> Welcome to the Nexus.";
+            document.getElementById('challenge-input').style.display = 'none';
+            document.getElementById('challenge-btn').style.display = 'none';
+        } else {
+            document.getElementById('challenge-input').style.borderColor = "#ff8c00";
+            document.getElementById('challenge-input').value = "";
+            document.getElementById('challenge-input').placeholder = "Try again...";
+        }
+    });
+</script>
+</body>
+</html>

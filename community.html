@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>L.E.U. - Community</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: radial-gradient(circle at top left, #ffffff 0%, #fffdf5 40%, #fdf4d3 100%); font-family: 'Space Mono', monospace; color: #4a3b22; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,175,55,0.3); height: 50px; z-index: 100; }
+.nav-logo { font-family: 'Cinzel', serif; color: #b8860b; font-size: 18px; font-weight: bold; letter-spacing: 2px; }
+.nav-links a { text-decoration: none; color: #8b7355; font-family: 'Cinzel', serif; font-weight: bold; letter-spacing: 1px; font-size: 12px; margin-left: 20px; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: #17becf; }
+.main-content { flex: 1; display: flex; padding: 20px; gap: 20px; height: calc(100vh - 50px); }
+.panel { background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+.panel-title { font-family: 'Cinzel', serif; color: #b8860b; font-size: 16px; margin-bottom: 15px; letter-spacing: 1px; border-bottom: 1px solid rgba(212,175,55,0.2); padding-bottom: 5px; }
+.grid-8 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; overflow: hidden; }
+.item-card { background: #fff; border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; transition: 0.2s; }
+.item-card:hover { border-color: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.15); transform: translateY(-2px); }
+.item-card h4 { font-family: 'Cinzel', serif; color: #b8860b; font-size: 12px; margin-bottom: 5px; }
+.item-card p { font-size: 9px; color: #6b5b45; line-height: 1.2; flex: 1; }
+.item-card .btn-sm { font-size: 9px; font-weight: bold; color: #17becf; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">L.E.U. ARCHIVE 000</div>
+    <div class="nav-links">
+        <a href="index.html" class="">HOME</a>
+        <a href="universe.html" class="">UNIVERSE</a>
+        <a href="science.html" class="">SCIENCE</a>
+        <a href="community.html" class="active">COMMUNITY</a>
+    </div>
+</nav>
+
+<div class="main-content">
+    <div class="panel" style="flex: 1;">
+        <div class="panel-title" style="text-align: center;">COMMUNITY & ORIGINS</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; flex: 1;">
+            <a href="../QUESTS.md" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">Quest Board</h4><p>Accept the challenges. Earn XP. Evolve the Genesis. The gamification of the archive.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">PLAY NOW →</span></a>
+            <a href="CONTRIBUTORS.md" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">Contributors</h4><p>The architects and AI co-pilots who helped build the universe.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">VIEW LIST →</span></a>
+            <a href="LICENSE" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">License</h4><p>PolyForm Noncommercial 1.0.0. The legal framework of L.E.U.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">READ LICENSE →</span></a>
+            <a href="../04_ARTIFACTS/mathesis_nova.html" class="item-card" style="padding: 20px;"><h4 style="font-size: 16px;">Mathesis Nova</h4><p>The original masterpiece that started it all. The genesis block of the visual universe.</p><span class="btn-sm" style="font-size: 12px; margin-top: 15px;">OPEN →</span></a>
+        </div>
+    </div>
+</div>
+</body></html>
