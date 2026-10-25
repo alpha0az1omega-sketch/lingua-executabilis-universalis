@@ -1,0 +1,147 @@
+{
+  "species": [
+    {
+      "id": "ENTITY_000001",
+      "traits": [
+        "THINK",
+        "SEE",
+        "MOVE",
+        "ALL"
+      ],
+      "equation": "THINK(x) AND SEE(x) AND MOVE(x) AND ALL(x)",
+      "hash": "7fc839f59d513549660c9ad0e8f064cf1f492423c00393201379a1ccc9db2024",
+      "parent_hash": null,
+      "generated_at": "2026-10-24T22:12:38.313088Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000002",
+      "traits": [
+        "BIG",
+        "GOOD",
+        "CAUSE"
+      ],
+      "equation": "BIG(x) AND GOOD(x) AND CAUSE(x)",
+      "hash": "500a23510a24686c99554b343c2c05fe9415e9a21bd580a2b271325c84eaf097",
+      "parent_hash": "7fc839f59d513549660c9ad0e8f064cf1f492423c00393201379a1ccc9db2024",
+      "generated_at": "2026-10-24T22:12:38.314053Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000003",
+      "traits": [
+        "SAY",
+        "NOT",
+        "HAPPEN"
+      ],
+      "equation": "SAY(x) AND NOT(x) AND HAPPEN(x)",
+      "hash": "da50196f63ee8d96162b7efda24fa5dadd2cb8f5a07d6959ed58510cb9bbd76d",
+      "parent_hash": "500a23510a24686c99554b343c2c05fe9415e9a21bd580a2b271325c84eaf097",
+      "generated_at": "2026-10-24T22:12:38.314066Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000004",
+      "traits": [
+        "LIVE",
+        "CAUSE",
+        "MOVE",
+        "PART",
+        "SEE"
+      ],
+      "equation": "LIVE(x) AND CAUSE(x) AND MOVE(x) AND PART(x) AND SEE(x)",
+      "hash": "cbb646fd07db9f68c9894dee17fd39380409ee6f50d48b234d1bcc04c6807f1e",
+      "parent_hash": "da50196f63ee8d96162b7efda24fa5dadd2cb8f5a07d6959ed58510cb9bbd76d",
+      "generated_at": "2026-10-24T22:12:38.314076Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000005",
+      "traits": [
+        "DIE",
+        "CAUSE",
+        "BIG",
+        "TRUE",
+        "SEE"
+      ],
+      "equation": "DIE(x) AND CAUSE(x) AND BIG(x) AND TRUE(x) AND SEE(x)",
+      "hash": "09c03c56fcdaaf723cb7295d2fff72efe0d84aee948ec8421ff324304a0c6aff",
+      "parent_hash": "cbb646fd07db9f68c9894dee17fd39380409ee6f50d48b234d1bcc04c6807f1e",
+      "generated_at": "2026-10-24T22:12:38.314085Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000006",
+      "traits": [
+        "IF",
+        "HAPPEN",
+        "ONE",
+        "SEE",
+        "SAME"
+      ],
+      "equation": "IF(x) AND HAPPEN(x) AND ONE(x) AND SEE(x) AND SAME(x)",
+      "hash": "7b479c5f6619fe447d1c7ef1ec18d20d8d727de7f5d44ebc54da78f1e58fc24b",
+      "parent_hash": "09c03c56fcdaaf723cb7295d2fff72efe0d84aee948ec8421ff324304a0c6aff",
+      "generated_at": "2026-10-24T22:12:38.314094Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000007",
+      "traits": [
+        "SAY",
+        "ONE",
+        "IF",
+        "EXIST",
+        "THINK"
+      ],
+      "equation": "SAY(x) AND ONE(x) AND IF(x) AND EXIST(x) AND THINK(x)",
+      "hash": "94d6bb9b932cbea91284bccd36d3829af159a17886c31f663ac0b0e6624a3251",
+      "parent_hash": "7b479c5f6619fe447d1c7ef1ec18d20d8d727de7f5d44ebc54da78f1e58fc24b",
+      "generated_at": "2026-10-24T22:12:38.314105Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000008",
+      "traits": [
+        "LIVE",
+        "KNOW",
+        "CAUSE",
+        "GOOD"
+      ],
+      "equation": "LIVE(x) AND KNOW(x) AND CAUSE(x) AND GOOD(x)",
+      "hash": "c9fa1b1158d7ba5cd0dc02992f67c57fea259e08a679f867e7f9844272dbb18b",
+      "parent_hash": "94d6bb9b932cbea91284bccd36d3829af159a17886c31f663ac0b0e6624a3251",
+      "generated_at": "2026-10-24T22:12:38.314113Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000009",
+      "traits": [
+        "IF",
+        "KNOW",
+        "ALL",
+        "GOOD"
+      ],
+      "equation": "IF(x) AND KNOW(x) AND ALL(x) AND GOOD(x)",
+      "hash": "10ee35631268b153e8a28815b0f0afcfa9e5ca4d0e59c4bc839f2ac2fee235d8",
+      "parent_hash": "c9fa1b1158d7ba5cd0dc02992f67c57fea259e08a679f867e7f9844272dbb18b",
+      "generated_at": "2026-10-24T22:12:38.314121Z",
+      "status": "VERIFIABLE"
+    },
+    {
+      "id": "ENTITY_000010",
+      "traits": [
+        "GOOD",
+        "NOT",
+        "IF",
+        "TRUE",
+        "BIG"
+      ],
+      "equation": "GOOD(x) AND NOT(x) AND IF(x) AND TRUE(x) AND BIG(x)",
+      "hash": "43fbe7a56e7b03b4ff9d291f907dc41c88cc1a072d38051ada9c40bd24273dfa",
+      "parent_hash": "10ee35631268b153e8a28815b0f0afcfa9e5ca4d0e59c4bc839f2ac2fee235d8",
+      "generated_at": "2026-10-24T22:12:38.314131Z",
+      "status": "VERIFIABLE"
+    }
+  ]
+}
