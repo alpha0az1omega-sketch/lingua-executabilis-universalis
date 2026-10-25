@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>L.E.U. - Cryptographic Physics Sandbox</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #050505; font-family: monospace; }
+        #hud { position: fixed; top: 20px; left: 20px; color: #d4af37; z-index: 10; pointer-events: none; }
+        #hud h1 { font-size: 16px; letter-spacing: 4px; margin-bottom: 5px; }
+        .entity { color: #888; font-size: 12px; margin-bottom: 3px; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="hud">
+        <h1>CRYPTOGRAPHIC PHYSICS</h1>
+        <div style="color:#17becf; font-size:12px; margin-bottom:15px;">Hash dictates Mass, Color & Gravity</div>
+        <div id="legend"></div>
+    </div>
+    
+    <script>
+        const entitiesData = [{"id": "ENTITY_000001", "color": "#7fc839", "mass": 0.9607843137254902, "speed": 0.05, "gravity": 0.5, "radius": 4.882352941176471, "equation": "THINK(x) AND SEE(x) AND MOVE(x) AND ALL(x)"}, {"id": "ENTITY_000002", "color": "#500a23", "mass": 0.3176470588235294, "speed": 0.01, "gravity": 1.0, "radius": 2.9529411764705884, "equation": "BIG(x) AND GOOD(x) AND CAUSE(x)"}, {"id": "ENTITY_000003", "color": "#da5019", "mass": 0.43529411764705883, "speed": 0.01, "gravity": -1.0, "radius": 3.3058823529411763, "equation": "SAY(x) AND NOT(x) AND HAPPEN(x)"}, {"id": "ENTITY_000004", "color": "#cbb646", "mass": 0.9921568627450981, "speed": 0.05, "gravity": 1.0, "radius": 4.976470588235294, "equation": "LIVE(x) AND CAUSE(x) AND MOVE(x) AND PART(x) AND SEE(x)"}, {"id": "ENTITY_000005", "color": "#09c03c", "mass": 0.33725490196078434, "speed": 0.01, "gravity": 1.0, "radius": 3.011764705882353, "equation": "DIE(x) AND CAUSE(x) AND BIG(x) AND TRUE(x) AND SEE(x)"}, {"id": "ENTITY_000006", "color": "#7b479c", "mass": 0.37254901960784315, "speed": 0.01, "gravity": 0.5, "radius": 3.1176470588235294, "equation": "IF(x) AND HAPPEN(x) AND ONE(x) AND SEE(x) AND SAME(x)"}, {"id": "ENTITY_000007", "color": "#94d6bb", "mass": 0.6078431372549019, "speed": 0.01, "gravity": 0.5, "radius": 3.8235294117647056, "equation": "SAY(x) AND ONE(x) AND IF(x) AND EXIST(x) AND THINK(x)"}, {"id": "ENTITY_000008", "color": "#c9fa1b", "mass": 0.06666666666666667, "speed": 0.01, "gravity": 1.0, "radius": 2.2, "equation": "LIVE(x) AND KNOW(x) AND CAUSE(x) AND GOOD(x)"}, {"id": "ENTITY_000009", "color": "#10ee35", "mass": 0.38823529411764707, "speed": 0.01, "gravity": 0.5, "radius": 3.1647058823529415, "equation": "IF(x) AND KNOW(x) AND ALL(x) AND GOOD(x)"}, {"id": "ENTITY_000010", "color": "#43fbe7", "mass": 0.6470588235294118, "speed": 0.01, "gravity": -1.0, "radius": 3.9411764705882355, "equation": "GOOD(x) AND NOT(x) AND IF(x) AND TRUE(x) AND BIG(x)"}];
+        
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 30;
+        
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+        
+        // Lumiere
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+        
+        // Centre de gravite
+        const center = new THREE.Mesh(
+            new THREE.SphereGeometry(1, 32, 32),
+            new THREE.MeshBasicMaterial({ color: 0xd4af37, wireframe: true })
+        );
+        scene.add(center);
+        
+        const meshes = [];
+        const legend = document.getElementById('legend');
+        
+        entitiesData.forEach((data, index) => {
+            // Creation de l'entite 3D
+            const geometry = new THREE.SphereGeometry(data.radius, 32, 32);
+            const material = new THREE.MeshStandardMaterial({ 
+                color: data.color, 
+                emissive: data.color, 
+                emissiveIntensity: 0.3,
+                metalness: 0.8,
+                roughness: 0.2
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            
+            // Position initiale
+            const angle = (index / entitiesData.length) * Math.PI * 2;
+            mesh.position.x = Math.cos(angle) * 15;
+            mesh.position.z = Math.sin(angle) * 15;
+            
+            // Stocker les donnees physiques
+            mesh.userData = {
+                speed: data.speed,
+                gravity: data.gravity,
+                angle: angle,
+                distance: 15 + (data.mass * 10) // La masse influe sur l'orbite
+            };
+            
+            scene.add(mesh);
+            meshes.push(mesh);
+            
+            // Legende HUD
+            legend.innerHTML += `<div class="entity" style="color:${data.color}">${data.id} | ${data.equation.substring(0, 20)}...</div>`;
+        });
+        
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+            
+            meshes.forEach(mesh => {
+                // Physique orbitale dictee par le hash
+                mesh.userData.angle += mesh.userData.speed;
+                mesh.position.x = Math.cos(mesh.userData.angle) * mesh.userData.distance;
+                mesh.position.z = Math.sin(mesh.userData.angle) * mesh.userData.distance;
+                
+                // Interaction de gravite (Attire vers le centre ou repousse)
+                const targetY = Math.sin(time + mesh.userData.angle) * 5 * mesh.userData.gravity;
+                mesh.position.y += (targetY - mesh.position.y) * 0.05;
+                
+                mesh.rotation.y += 0.02;
+            });
+            
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+        
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
