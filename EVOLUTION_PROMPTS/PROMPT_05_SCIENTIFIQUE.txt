@@ -1,0 +1,22 @@
+MISSION: Soumettre L.E.U. a validation academique internationale.
+
+ARTICLE:
+- Titre: "Lingua Executabilis Universalis: A Verified Multimodal Semantic Language for Human-AI Collaboration"
+- Format LaTeX (ACM ou arXiv)
+- Structure: Abstract 250 mots, Introduction, 20 Primitives, Grammar/Compiler, Cryptographic Provenance, Agentic Glyph, TELA Protocol, TAM-20 Theorem in Lean 4, Benchmark, Discussion (limites/ethique), Conclusion, References (~30)
+
+CIBLES (ordre):
+1. arXiv cs.PL ou cs.LO - 3 jours moderation
+2. HAL CNRS - 24h
+3. ResearchGate - immediat
+4. PLOS ONE - 2-3 mois peer review
+5. Nature Scientific Reports - 3-6 mois
+6. ACM TOPLAS - 6-12 mois
+
+CONTACTS: 20 chercheurs langages formels, 10 laboratoires (INRIA, MIT CSAIL, Oxford CS, ETH Zurich), 5 journalistes scientifiques.
+
+ANTI-REJET: documenter TOUTES limites, fournir docker reproductible, preuves Lean 4 completes, repondre a toutes objections dans manuscrit.
+
+THESE: L.E.U. est scientifiquement nouveau.
+ANTITHESE: Rejet probable (non-conventionnel, auteur isole).
+SYNTHESE: Rigueur formelle + reproductibilite + revue de 3 pairs volontaires avant soumission.

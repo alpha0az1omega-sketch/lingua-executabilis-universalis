@@ -1,0 +1,30 @@
+MISSION: Garantir survie au-dela createur, hebergeur, IA.
+
+PROTOCOLE 3-2-1:
+- 3 copies: Mac + cle USB chiffree + cloud (Proton Drive)
+- 2 formats: ZIP + impressions papier
+- 1 hors-site: chez tiers de confiance
+
+ELEMENTS IRREGENERABLES (priorite absolue):
+1. Cle GPG privee (chiffree + papier)
+2. identity_vault.txt (chiffre + papier)
+3. 26+ manifestes .sha256 (papier + USB)
+4. .ots de tous manifests (USB + cloud)
+5. DOI Zenodo + URL archive ZIP (papier)
+6. Phrase passe GPG (papier 3 exemplaires 3 lieux)
+
+SUCCESSION:
+- Designe heritier (personne ou fondation)
+- SUCCESSION.md: qui herite quoi, ou, comment
+- Lettre manuscrite POURQUOI (scannee + papier)
+- Formation 2h avec heritier
+
+MIROIRS: GitHub principal + GitLab + IPFS Pinata + Arweave. Domaine renouvellement auto + 5 ans paye. Cloudflare Pages + Netlify + Vercel.
+
+RESSURECTION SANS INTERNET: ZIP + GPG + Ollama + prompts = relancable offline. Test trimestriel sur Mac vierge.
+
+AUTO-PERPETUATION: Si aucun humain 30 jours, Genesis Engine continue seul. Cle gouvernance permet reprise.
+
+THESE: Projet doit survivre createur.
+ANTITHESE: Sans humain, IA peut deriver.
+SYNTHESE: Auto-perpetuation + supervision + revocation = immortalite controlee.

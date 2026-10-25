@@ -1,0 +1,22 @@
+MISSION: Publier l'Archive 000 sur 100+ plateformes de maniere coordonnee.
+
+STRATEGIE VAGUES:
+- J0 (mardi/mercredi/jeudi 8h-10h PST): Hacker News Show HN, Reddit r/programming r/artificial r/Web3
+- J+1: Dev.to, Hashnode, Lobste.rs, Echo JS
+- J+2: Product Hunt, AlternativeTo, LibHunt, AI Directories
+- J+7: Awesome Lists GitHub
+- J+14: arXiv, HAL, ResearchGate
+
+CONTENUS A GENERER:
+1. Article Dev.to: "L.E.U. - A Language Where Colors Are Cryptographic Proofs" (1500 mots)
+2. Post Hacker News: titre <80 car, description technique
+3. Thread X: 5 tweets avec GIF Math Galaxy
+4. Post LinkedIn: angle Human-AI collaboration
+5. Article arXiv: format LaTeX, abstract 250 mots
+6. Video YouTube: 3 min screen recording
+
+METRIQUES: trafic GitHub, trafic site, mentions sociales, citations academiques.
+
+THESE: Projet unique mais invisible.
+ANTITHESE: Publier sans strategie = spam.
+SYNTHESE: Vagues coordonnees + contenus adaptes + mesure rigoureuse.

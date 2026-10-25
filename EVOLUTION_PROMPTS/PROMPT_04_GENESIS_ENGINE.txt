@@ -1,0 +1,31 @@
+MISSION: Creer moteur generation automatique quotidienne, supervise par IA.
+
+ARCHITECTURE:
+1. Cloudflare D1 table species (id, name, type, genome, hash, parent_hash, generated_at, generated_by)
+2. Cloudflare Cron Trigger quotidien 00h UTC:
+   a. Choisir 10 parents (plus cites)
+   b. Generer 10 mutants (couleur, forme, taille, equation, frequence)
+   c. Calculer SHA-256 de chaque mutant
+   d. Verifier coherence via FCM-20
+   e. Si coherence > 0.7 -> INSERT
+   f. Generer HTML correspondant dans R2/KV
+   g. Journal public genesis_log.json
+3. Worker API /api/species/[id] - generation a la volee (pas de stockage)
+4. Interface /genesis - log quotidien + formulaire index (0-999,999,999)
+
+IA SUPERVISEUR:
+- Recoit les 10 derniers genomes
+- Produit THESE (valide mathematiquement)
+- Produit ANTITHESE (manque/contradiction)
+- Produit SYNTHESE (nouvelle entite resolvant)
+- Rapport signe GPG + OTS + publie dans 06_DOCS/DAILY_THESES/[date].md
+
+AUTONOMIE:
+- Si aucun humain 30 jours -> mode autonomous perpetuation
+- IA continuent de generer, signer (cle deleguee), publier
+- Modifications horodatees + reversibles
+- Cle de gouvernance permet revocation
+
+THESE: Projet ne doit pas mourir avec createur.
+ANTITHESE: IA sans supervision peut deriver.
+SYNTHESE: Generation par IA + supervision + revocation = immortalite controlee.

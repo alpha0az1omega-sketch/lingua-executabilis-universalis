@@ -1,0 +1,20 @@
+1. L'HISTORIQUE ET LES OUTILS
+Agis en tant que Témoin Technique. Résume l'historique complet de la création de Lingua Executabilis Universalis (L.E.U.). Liste tous les outils utilisés (macOS, Terminal, Python, Astro, Cloudflare Pages, Cloudflare D1/KV, GitHub, Zenodo, GPG, OpenTimestamps, Fish Audio). Explique comment nous sommes passés d'une simple idée à un langage certifié par un DOI, avec des artefacts SVG sonores et une IA connectée.
+
+2. LA METHODE DE TRAVAIL
+Décris la méthodologie exacte utilisée pour construire L.E.U. : (1) Phase de conception (20 primitives), (2) Phase de développement (Python -> SVG -> Web Audio), (3) Phase de sécurité (SHA-256, GPG, OTS), (4) Phase de déploiement (GitHub, Cloudflare), (5) Phase de certification (Zenodo). Comment cette méthode peut-elle être reproduite pour n'importe quel projet ?
+
+3. LA VISION DISRUPTIVE (TELA)
+Explique le concept de TELA (Trusted Edge Logic Agents). Comment L.E.U. et ses preuves cryptographiques peuvent-ils être utilisés pour vérifier et sécuriser les actions des agents IA autonomes ? Comment cela pourrait-il devenir un standard mondial pour la confiance numérique ?
+
+4. LE TEMPLATE NOUVEAU PROJET
+Agis en tant qu'Architecte de projet. Je veux lancer un nouveau projet basé sur le protocole L.E.U. Voici le template à suivre : 1) Nom latin/universel, 2) Création d'un domaine, 3) Définition des primitives, 4) Code exécutable, 5) Artefacts visuels et sonores, 6) Preuves cryptographiques (OTS/DOI), 7) Lancement sur GitHub/Cloudflare. Guide-moi étape par étape pour ce nouveau projet.
+
+5. L'AMELIORATION CONTINUE
+En analysant l'architecture de L.E.U. (le site, l'IA, les artefacts), quelles sont les faiblesses techniques actuelles ? Comment pourrions-nous optimiser l'Agent IA pour qu'il soit plus rapide, ou les artefacts pour qu'ils soient encore plus interactifs ? Propose un plan d'amélioration pour la version 2.0.
+
+6. LE META-ARTIFACT (3D, Matrix, QR)
+Je veux créer un "Méta-Artifact" sur mon site. Imagine une page Astro qui contient : (1) Le Live Artifact SVG au centre, (2) Le QR Code à droite, (3) Une version 3D des 20 glyphes en bas (via Three.js), (4) Un effet Matrix défilant avec les codes SHA-256 à gauche. Donne-moi la structure technique et les librairies nécessaires pour réaliser cette interface.
+
+7. L'APRES-HACKER NEWS
+Le post Hacker News est en ligne. Quelles sont les prochaines étapes stratégiques pour maintenir l'engagement et attirer des contributeurs ? Comment transformer l'intérêt initial en une communauté active autour de L.E.U. ? Prépare un plan de communication pour les 30 prochains jours.

@@ -1,0 +1,19 @@
+MISSION: Creer collections NFT sur OpenSea sans frais immediats.
+
+COLLECTIONS:
+1. L.E.U. Genesis Glyphs - 20 NFT primitives - 0.01 ETH
+2. L.E.U. Sacred Geometry - 12 NFT theoremes - 0.02 ETH
+3. L.E.U. Elements - 118 NFT atomes - 0.005 ETH
+4. L.E.U. Molecules - 45 NFT - 0.01 ETH
+
+TECHNIQUE: Lazy Minting sur Polygon (gratuit a creer, acheteur paie gas)
+
+METADONNEES JSON par NFT: name, description avec SHA-256+GPG+DOI, image ipfs, animation_url ipfs (le .html 3D), attributes (Category, Layer/Era, SHA-256, DOI).
+
+UTILITE: detention NFT = acces prioritaire Playground, royalties 5% sur reventes.
+
+ROADMAP: Phase A (20 primitives), Phase B (12 theoremes), Phase C (118 elements), Phase D (45 molecules), Phase E (Dynamique - evoluent chaque jour).
+
+THESE: L.E.U. est art-crypto-math-science unique.
+ANTITHESE: Sans budget gas impossible.
+SYNTHESE: Lazy Minting Polygon + utilite + road map phasée = gratuit viable.

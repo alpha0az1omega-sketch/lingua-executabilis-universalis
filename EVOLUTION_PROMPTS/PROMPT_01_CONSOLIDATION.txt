@@ -1,0 +1,20 @@
+MISSION: Consolider l'etat actuel de l'Archive 000 et produire une version scellee finale.
+
+CONTEXTE: Le projet L.E.U. contient 20 primitives, compilateur Python/WASM, 20 glyphes SVG, 20 Live Artifacts, 20 NFTs, 118 elements chimiques 3D, 45 molecules 3D, 12 geometries sacrees, anatomie cheval/chene, Math Galaxy, Mathesis Nova, Tuteur IA grounded, 26 manifestes signes, DOI 10.5281/zenodo.23476518.
+
+ACTIONS:
+1. Verifier que TOUS les fichiers sont presents
+2. Nettoyer fichiers obsoletes (live_*.svg plats remplaces par primitives_3d/*.html)
+3. Mettre a jour collection.astro pour pointer vers primitives_3d/{PID}.html
+4. Creer manifeste final v4 (shasum -a 256 sur tous fichiers modifies)
+5. Signer v4 avec GPG 4ED4A15B...ADD1AEE
+6. Horodater avec OpenTimestamps
+7. Zipper archive: ALPHA_ARCHIVE_000_v4_FINAL.zip
+8. Uploader sur GitHub + Zenodo
+9. Documenter dans 06_DOCS/CONSOLIDATION_REPORT.md
+
+THESE: Archive complete mais fragmentee.
+ANTITHESE: Risque de confusion pour visiteur ou scientifique.
+SYNTHESE: Version coherente, scellee v4, prete pour publication academique.
+
+LIVRABLE: Archive v4 signee + rapport + inventaire complet.

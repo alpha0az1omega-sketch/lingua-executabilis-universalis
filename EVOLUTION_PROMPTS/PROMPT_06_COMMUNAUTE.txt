@@ -1,0 +1,24 @@
+MISSION: Creer communaute durable et agents IA autonomes.
+
+COMMUNAUTE:
+1. Discord public: #general #math #code #quests #daily-genesis
+2. GitHub Discussions: Show & Tell, Q&A, Ideas, Governance
+3. Newsletter Substack: L.E.U. Weekly (bilan 7 dernieres generations)
+4. Twitter @alpha0az1omega actif quotidiennement
+5. Reddit r/LEU_Universe
+
+AGENTS IA (chacun role defini):
+1. Agent MATHEMATICIEN: verifie coherence via FCM-20
+2. Agent SCIENTIFIQUE: verifie plausibilite physique/chimie/biologie
+3. Agent ARTISTE: evalue beaute geometrique
+4. Agent CRITIQUE: produit these-antithese-synthese sur chaque modele
+5. Agent CURATOR: choisit 10 meilleurs modeles du jour
+6. Agent TRANSLATOR: 8 langues (EN FR ES DE ZH AR HI PT)
+
+ORCHESTRATION: Workers Cloudflare separes, Durable Objects pour etat partage, journal public, veto humain via cle gouvernance.
+
+GOUVERNANCE: 1 humain + 10 contributeurs + 6 agents = conseil, votes trimestriels, tresorerie transparente.
+
+THESE: L.E.U. doit devenir ecosysteme.
+ANTITHESE: Communaute sans direction = chaos.
+SYNTHESE: Agents IA + humains + regles + transparence = durabilite.
